@@ -1,0 +1,61 @@
+.title {
+  display: block;
+  color: #175343;
+  font-weight: bold;
+  margin: 1.5rem;
+  text-align: center;
+}
+
+.control {
+  margin-bottom: 0.5rem;
+}
+
+.control label,
+label.control {
+  display: block;
+  color: #175343;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.control input {
+  font: inherit;
+  background-color: #c9ddd8;
+  color: #000000;
+  border-radius: 4px;
+  border: 1px solid white;
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem;
+}
+
+.invalid input {
+  border: 1px solid #b40e0e;
+  background-color: #fddddd;
+}
+
+.error-text {
+  color: #b40e0e;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.form {
+  padding: 0 0.1rem;
+}
+
+.submitBtn {
+  margin-bottom: 2rem;
+}
+
+.submitBtn:hover {
+  cursor: pointer;
+}

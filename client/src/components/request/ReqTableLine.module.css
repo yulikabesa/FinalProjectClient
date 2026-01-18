@@ -1,0 +1,231 @@
+.auth {
+  margin: 2rem auto 0 auto;
+  width: 90vw;
+  border-radius: 6px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  text-align: left;
+  color: rgb(0, 0, 0);
+}
+
+.auth h1 {
+  text-align: center;
+  color: #175343;
+}
+
+.title {
+  display: block;
+  color: #175343;
+  font-weight: bold;
+  margin: 1.5rem;
+}
+
+.profilePic {
+  width: 2rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.table-container {
+  margin: 0.4rem auto 0 auto;
+  width: 100%;
+  border-collapse: collapse; /* Essential for rounded corners with overflow: hidden */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-radius: 10px; /* Apply border radius to the table */
+  overflow-x: auto; /* Adds horizontal scrolling only if needed */
+  max-height: 64vh; /* Set your desired maximum height */
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.styled-table {
+  border-collapse: collapse; /* Removes space between borders */
+  margin: 0;
+  font-family: sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Adds a subtle shadow */
+  width: 100%;
+}
+
+/* Styling the table header */
+.styled-table thead tr {
+  background-color: #f3f3f3; /* Brand color for header */
+  color: #175343;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Styling header and data cells with padding */
+.styled-table th,
+.styled-table td {
+  padding: 0.7rem 0.3rem;
+  border: 1px solid #dddddd; /* Light borders */
+}
+
+/* Zebra striping for the table body rows (even rows get a different color) */
+.styled-table tbody tr {
+  background-color: white;
+}
+
+/* Highlight row on hover for interactivity */
+/* .styled-table tbody tr:hover {
+  background-color: #f3f3f3;
+  cursor: pointer;
+} */
+
+.styled-table,
+.styled-table th,
+.styled-table td {
+  box-sizing: border-box; /* Ensures padding/border is included in the 100% width */
+}
+
+.styled-table td {
+  vertical-align: middle;
+  max-width: 14rem;
+}
+
+.PENDING {
+  color: #28a8d3;
+}
+
+.REJECTED {
+  color: rgb(165, 7, 7);
+}
+
+.APPROVED {
+  color: #1f782b;
+}
+
+.PENDING,
+.REJECTED,
+.APPROVED {
+  font-weight: 600;
+}
+
+.add {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.7rem 1rem;
+  border: 1px dashed #c5c5c5;
+  border-collapse: collapse; /* Essential for rounded corners with overflow: hidden */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-radius: 10px; /* Apply border radius to the table */
+  background-color: white;
+  cursor: pointer;
+  text-align: left;
+  color: #175343;
+}
+
+.add:hover {
+  background-color: #f3f3f3;
+}
+
+.filters {
+  text-align: right;
+  direction: rtl;
+}
+
+.filters .button {
+  color: black;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filters .button:hover {
+  color: #175343;
+}
+
+.filters .chosen {
+  color: #175343;
+  background: transparent;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-bottom: medium solid #175343;
+}
+
+.approve {
+  color: white;
+  background-color: #059c62;
+}
+
+.approve:hover {
+  background-color: #035f3b;
+}
+
+.reject {
+  background-color: rgb(251, 234, 237);
+  color: #b02626;
+}
+
+.reject:hover {
+  background-color: rgb(255, 216, 221);
+}
+
+.button-container {
+  display: flex; /* Enables flexbox layout */
+  flex-wrap: nowrap; /* Prevents items from wrapping to the next line */
+  /* Optional: add spacing and alignment */
+  column-gap: 10px; /* Adds space between the buttons */
+  justify-content: center; /* Centers the buttons within the container */
+}
+
+.approve,
+.reject {
+  flex-shrink: 1; /* Ensures buttons shrink equally if needed, without causing overflow as text size can cause issues if not managed */
+  overflow: hidden; /* To ensure content is usable even if it overflows, the browser will add a scrollbar */
+  white-space: nowrap; /* Prevents text inside buttons from wrapping, keeping button height consistent */
+  border: none;
+  box-sizing: border-box;
+  padding: 0.3rem;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.approve:hover,
+.reject:hover {
+  cursor: pointer;
+}
+
+.dates {
+  color: black;
+  text-align: right;
+  display: inline-block;
+  direction: rtl;
+  margin: 0;
+}
+
+.datePicker {
+  text-align: center;
+  margin-right: 1rem;
+  display: inline-block;
+}
+
+.datePicker:focus {
+  display: inline-block;
+}
+
+.dateDiv {
+  text-align: right;
+  display: flex; 
+  flex-direction: row-reverse;
+  align-items: center; /* Vertically aligns items in the center */
+  gap: 10px;
+}
+
+.arrow {
+  border-radius: 6px;
+  text-align: center; 
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+.arrow:hover:disabled {
+  cursor: auto;
+}

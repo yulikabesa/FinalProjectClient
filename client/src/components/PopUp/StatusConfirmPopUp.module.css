@@ -1,0 +1,58 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.733);
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.header h2 {
+  margin: 0;
+  color: #175343;
+}
+
+.content {
+  padding: 1rem;
+}
+
+.actions {
+  padding: 1rem;
+  text-align: center;
+}
+
+.reject-button {
+  margin: 1rem 0.5rem;
+  font: inherit;
+  background-color: transparent;
+  border: 1px solid #175343;
+  color: #175343;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.reject-button:hover {
+  background-color: #175343;
+  border: 1px solid #175343;
+  color: white;
+  cursor: pointer;
+}

@@ -1,0 +1,104 @@
+.auth {
+  margin: 2rem auto 0 auto;
+  width: 40vw;
+  border-radius: 6px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.auth h1 {
+  text-align: center;
+  color: #175343;
+}
+
+.profilePic {
+  width: 14vw;
+  margin: 2rem auto 0 auto;
+  display: block;
+}
+
+.button {
+  font: inherit;
+  background-color: transparent;
+  border: 1px solid #175343;
+  color: #175343;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.button:hover {
+  background-color: #175343;
+  border: 1px solid #175343;
+  color: white;
+  cursor: pointer;
+  /* flex-shrink: 1;
+  overflow: hidden;
+  white-space: nowrap; */
+}
+
+.button-container {
+  margin-top: 1rem;
+  display: flex; /* Enables flexbox layout */
+  flex-wrap: nowrap; /* Prevents items from wrapping to the next line */
+  column-gap: 10px; /* Adds space between the buttons */
+  justify-content: center; /* Centers the buttons within the container */
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.invalid input {
+  border: 1px solid #b40e0e;
+  background-color: #fddddd;
+}
+
+.error-text {
+  color: #b40e0e;
+}
+
+.control {
+  margin-bottom: 0.5rem;
+}
+
+.control label {
+  display: block;
+  color: #175343;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.control input {
+  font: inherit;
+  background-color: #c9ddd8;
+  color: #000000;
+  border-radius: 4px;
+  border: 1px solid white;
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem;
+}
+
+.form,
+.centering {
+  /* padding: 1rem 1rem 0 1rem; */
+  margin: 1rem auto;
+  width: 60%;
+}
+
+.title {
+  display: block;
+  color: #175343;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}

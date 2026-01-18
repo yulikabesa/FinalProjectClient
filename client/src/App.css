@@ -1,0 +1,14 @@
+#root {
+  margin: 0 0;
+  text-align: center;
+}
+
+
+body {
+  background-color: hsl(168, 23%, 91%);
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
