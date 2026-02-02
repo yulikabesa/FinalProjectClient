@@ -12,8 +12,6 @@ const ReqsHistory: React.FC = () => {
 
   const onDateChange = (dates: [Date | null, Date | null]) => {
     const [start, end] = dates;
-    console.log("start", start?.toString());
-    console.log("end", end?.toString());
     setStartDate(start);
     setEndDate(end);
   };

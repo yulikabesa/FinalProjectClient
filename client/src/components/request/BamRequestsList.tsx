@@ -21,6 +21,7 @@ export type IBamRequest = {
   updatedAt: string;
   __v: number;
   _id: string;
+  rejectReason?: string;
 };
 
 const BamRequestsList: React.FC = () => {

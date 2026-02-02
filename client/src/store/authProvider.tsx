@@ -11,16 +11,43 @@ export type IUser = {
 };
 
 // Helper function to safely get initial values
-const getInitialToken = () => localStorage.getItem('authToken');
+const getInitialToken = () => localStorage.getItem("authToken");
 const getInitialUser = () => {
-  const storedUser = localStorage.getItem('user');
+  const storedUser = localStorage.getItem("user");
   return storedUser ? JSON.parse(storedUser) : null;
 };
+
+// const calculateRemainingTime = (expirationTime: string) => {
+//   const currentTime = new Date().getTime();
+//   const adjExpirationTime = new Date(expirationTime).getTime();
+
+//   const remainingDuration = adjExpirationTime - currentTime;
+
+//   return remainingDuration;
+// };
+
+// const retrieveStoredToken = () => {
+//   const storedToken = localStorage.getItem("token");
+//   const storedExpirationDate = localStorage.getItem("expirationTime");
+
+//   const remainingTime = calculateRemainingTime(storedExpirationDate);
+
+//   if (remainingTime <= 3600) {
+//     localStorage.removeItem("token");
+//     localStorage.removeItem("expirationTime");
+//     return null;
+//   }
+
+//   return {
+//     token: storedToken,
+//     duration: remainingTime,
+//   };
+// };
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [token, setToken] = useState<string | null>(getInitialToken());
   const [user, setUser] = useState<IUser | null>(getInitialUser());
-  
+
   useEffect(() => {
     // This effect runs only once when the provider mounts
     const storedToken = localStorage.getItem("authToken");

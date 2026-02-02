@@ -54,7 +54,6 @@ const ModalOverlay: React.FC<{
             openedBy: authCtx.user!._id,
             status: "PENDING"
           }, authCtx.token!);
-          console.log(response.status, "status for re new req sending");
           navigate(0); // This forces a full page reload of the current location
     } catch (error) {
       // error

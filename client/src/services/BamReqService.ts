@@ -41,18 +41,18 @@ class BamReqService {
   };
 
   // get bam reqs by type and status
-  getBamReqs = async (token: string, page: number, filter?: {type?: string, status?: string; endDate?: Date; startDate?: Date}) => {
+  getBamReqs = async (token: string, page: number, filter?: {type?: string, status?: string; endDate?: Date; startDate?: Date, exclude?: string}) => {
     const params = new URLSearchParams();
     params.append("page", page.toString());
     if (filter && filter.type) params.append("type", filter.type);
     if (filter && filter.status) params.append("status", filter.status);
     if (filter && filter.startDate) params.append('startDate', filter.startDate.toString());
     if (filter && filter.endDate) params.append('endDate', filter.endDate.toString());
+    if (filter && filter.exclude) params.append("excludeStatus", filter.exclude);
 
 
     // Convert params to string and append to the URL
     const url = `http://localhost:3000/bamRequest/requests?${params.toString()}`;
-    console.log(url);
     try {
       const response = await axios.get(url, {
         headers: {
@@ -86,7 +86,6 @@ class BamReqService {
 
     // Convert params to string and append to the URL
     const url = `http://localhost:3000/bamRequest/requests/${id}?${params.toString()}`;
-    console.log(url);
     try {
       const response = await axios.get(url, {
         headers: {
@@ -117,11 +116,13 @@ class BamReqService {
   changeReqStatus = async (
     reqId: string,
     reqStatus: "approve" | "reject",
-    token: string
+    token: string, 
+    reqReason?: string
   ) => {
     const url = `http://localhost:3000/bamRequest/${reqStatus}/${reqId}`;
     try {
-      const response = await axios.patch(url, undefined, {
+      const toSend = reqReason? {rejectReason: reqReason} : undefined;
+      const response = await axios.patch(url, toSend, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json", // This is the default, but explicitly shown here

@@ -1,5 +1,5 @@
 import React from "react";
-import type{ IUser } from "./authProvider";
+import type { IUser } from "./authProvider";
 
 interface AuthContextType {
   isLoggedIn: boolean;
@@ -9,7 +9,8 @@ interface AuthContextType {
   update: (user: IUser) => void;
   login: (
     token: string,
-    user: IUser
+    user: IUser,
+    expirationTime: string
   ) => void;
   logout: () => void;
 }

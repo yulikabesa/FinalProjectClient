@@ -78,6 +78,7 @@ const AuthForm: React.FC = () => {
     resetEmailInput();
     resetPersonalNumberInput();
     resetNameInput();
+    setIsError(false);
   };
 
   const goToForgotPasswordPage = () => {
@@ -101,7 +102,9 @@ const AuthForm: React.FC = () => {
             isAdmin: false,
           });
       setIsLoading(false);
-      authCtx.login(response.data.data.token, response.data.data.user);
+      const expirationTime = new Date().getTime() + 1000 * 60 * 60; // 1 hour from now
+      localStorage.setItem('expirationTime', new Date(expirationTime).toISOString());
+      authCtx.login(response.data.data.token, response.data.data.user, new Date(expirationTime).toISOString());
       navigate("/home", { replace: true });
     } catch (error) {
       setIsError(true);

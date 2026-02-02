@@ -1,0 +1,63 @@
+.tooltip-container {
+  position: relative; /* Essential for positioning the tooltip text relative to this container */
+  display: inline-block; /* Keeps container size tight to content */
+  cursor: help; /* Changes cursor to a question mark style */
+}
+
+.help-icon {
+  /* Basic styling for the '?' icon */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.tooltip-text {
+    
+  /* Hidden by default */
+  visibility: hidden;
+  width: 120px;
+  font-size: 12px;
+  background-color: #595151;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+   /* Positioning properties */
+  position: absolute;
+  bottom: 100%; /* Positions the bottom of the tooltip at the top of the container */
+  left: 50%; /* Moves the left edge of the tooltip to the center of the container */
+  transform: translateX(-50%); /* Shifts the tooltip left by half its own width to center it */
+
+  /* Additional styling */
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  /* Add some space between the element and the tooltip */
+  margin-bottom: 10px; 
+  /* Smooth transition for appearance */
+  transition: opacity 0.3s; 
+  z-index: 1;
+  /* Prevent text wrapping if it's a very short tooltip */
+  white-space: nowrap; 
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when the container is hovered over */
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  overflow-y: hidden;
+}

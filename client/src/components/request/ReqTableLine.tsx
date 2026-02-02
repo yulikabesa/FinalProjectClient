@@ -2,6 +2,7 @@ import classes from "./ReqTableLine.module.css";
 import type { IBamRequest } from "./BamRequestsList";
 import soldierPicture from "../../assets/soldierProfile.png";
 import SeeMore from "./SeeMore";
+import HelpTooltip from "./HelpToolTip";
 
 const ReqTableLine: React.FC<{
   bamReq: IBamRequest;
@@ -30,7 +31,7 @@ const ReqTableLine: React.FC<{
           </div>
         </td>
       ) : (
-        <td className={classes[props.bamReq.status]}>{props.bamReq.status}</td>
+        <td className={classes[props.bamReq.status]}>{props.bamReq.status}{props.bamReq.status === "REJECTED" && <HelpTooltip helpText={props.bamReq.submitReason} /> }</td>
       )}
     </>
   );

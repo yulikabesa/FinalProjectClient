@@ -70,8 +70,6 @@ class UserService {
           "Content-Type": "application/json", // This is the default, but explicitly shown here
         },
       });
-      console.log("Success! Status code:", response.status);
-      console.log("response :", response);
     } catch (error) {
       // Handle any errors that occurred during the fetch operation
       if (axios.isAxiosError(error)) {

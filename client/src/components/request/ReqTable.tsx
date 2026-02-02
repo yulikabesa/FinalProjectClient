@@ -35,7 +35,6 @@ const ReqTable: React.FC<{
   };
 
   const handleStatusClick = (bamReq: IBamRequest, status: string) => {
-    console.log("clicked " + bamReq + " " + status);
     setNewStatus(status);
     setCurrentBamRequest(bamReq);
     setWasBamRequestClicked(true);
@@ -51,21 +50,18 @@ const ReqTable: React.FC<{
           currentPage,
           { type: props.type, status: "PENDING" }
         );
-        // console.log("currentPage", currentPage);
-        // console.log(bamRequestsResponse.data.data.bamRequests);
       } else if (props.id != undefined) {
         bamRequestsResponse = await bamReqService.getReqsByUserId(
           token!,
           props.id,
           currentPage
         );
-        console.log(bamRequestsResponse);
       } else {
         // means it wants the all req history
         bamRequestsResponse = await bamReqService.getBamReqs(
           token!,
           currentPage,
-          { endDate: props.endDate!, startDate: props.startDate! }
+          { endDate: props.endDate!, startDate: props.startDate!, exclude: "PENDING" }
         );
       }
       setBamRequests(bamRequestsResponse.data.data.bamRequests);
@@ -96,7 +92,7 @@ const ReqTable: React.FC<{
       setCurrentPage((prevPage) => prevPage - 1);
     }
   };
-  /////lhkhilgiugliug
+  
   return (
     <>
       {wasBamRequestClicked && (
