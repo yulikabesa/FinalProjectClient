@@ -31,7 +31,7 @@ const ReqTableLine: React.FC<{
           </div>
         </td>
       ) : (
-        <td className={classes[props.bamReq.status]}>{props.bamReq.status}{props.bamReq.status === "REJECTED" && <HelpTooltip helpText={props.bamReq.submitReason} /> }</td>
+        <td className={classes[props.bamReq.status]}>{props.bamReq.status}{props.bamReq.status === "REJECTED" && <HelpTooltip helpText={props.bamReq.rejectReason} /> }</td>
       )}
     </>
   );
