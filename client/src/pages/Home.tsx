@@ -1,21 +1,10 @@
-import { useContext, useEffect, useState } from "react";
-import AuthContext from "../store/auth-context";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import BamRequestsList from "../components/request/BamRequestsList";
 import classes from "../components/request/ReqTableLine.module.css";
 import ReqForm from "../components/request/ReqForm";
 
 const Home: React.FC = () => {
-  const authCtx = useContext(AuthContext);
-  const isLoggedIn = authCtx.isLoggedIn;
-  const navigate = useNavigate();
   const [wasNewBamReqClicked, setWasNewBamReqClicked] = useState(false);
-
-  useEffect(() => {
-    if (!isLoggedIn) {
-      navigate("/login", { replace: true });
-    }
-  }, [isLoggedIn]);
 
   const handleNewBamReqClick = () => {
     setWasNewBamReqClicked(true);

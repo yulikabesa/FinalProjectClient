@@ -11,54 +11,52 @@ import Layout from "./components/layout/Layout";
 import Profile from "./pages/Profile";
 import ManageReqs from "./pages/ManageReqs";
 import ReqsHistory from "./pages/ReqsHistory";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <Layout />
-    ),
-    children: [
-      {
-        index: true,
-        element: <Navigate replace to="/home" />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/quotes/:quoteId/*",
-        element: <div />,
-      },
-      {
-        path: "/home",
-        element: <Home />,
-      },
-      {
-        path: "/manage",
-        element: <ManageReqs />,
-      },
-      {
-        path: "/history",
-        element: <ReqsHistory />,
-      },
-      {
-        path: "/profile",
-        element: <Profile />,
-      },
-    ],
-  },
-  {
-    path: "*",
-    element: <NotFound />,
-  },
-]);
+import { useContext } from "react";
+import AuthContext from "./store/auth-context";
 
 const App = () => {
-  return (
-      <RouterProvider router={router} />
-  );
+  const authCtx = useContext(AuthContext);
+  const isLoggedIn = authCtx.isLoggedIn;
+  const isAdmin = authCtx.isAdmin;
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          index: true,
+          element: <Navigate replace to="/home" />,
+        },
+        {
+          path: "/login",
+          element: <Login />,
+        },
+        {
+          path: "/home",
+          element: (isLoggedIn? <Home />: <Login />),
+        },
+        {
+          path: "/manage",
+          element: (isAdmin? <ManageReqs />: <Home />),
+        },
+        {
+          path: "/history",
+          element: (isAdmin? <ReqsHistory />: <Home />),
+        },
+        {
+          path: "/profile",
+          element: (isLoggedIn? <Profile />: <Home />),
+        },
+      ],
+    },
+    {
+      path: "*",
+      element: <NotFound />,
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 };
 
 export default App;

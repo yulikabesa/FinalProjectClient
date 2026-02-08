@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../store/auth-context";
-import { useNavigate } from "react-router-dom";
 import classes from "../components/request/ReqTableLine.module.css";
 import ReqForm from "../components/request/ReqForm";
 import ReqTable from "../components/request/ReqTable";
@@ -19,14 +18,8 @@ const ManageReqs: React.FC = () => {
   const authCtx = useContext(AuthContext);
   const isAdmin = authCtx.isAdmin;
   const [activeButtonId, setActiveButtonId] = useState<number>(1);
-  const navigate = useNavigate();
   const [wasNewBamReqClicked, setWasNewBamReqClicked] = useState(false);
 
-  useEffect(() => {
-    if (!isAdmin) {
-      navigate("/home", { replace: true });
-    }
-  }, [isAdmin]);
 
   const handleTypeFilterClick = (id: number) => {
     setActiveButtonId(id);
